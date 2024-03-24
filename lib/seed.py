@@ -9,6 +9,7 @@ from sqlalchemy.orm import sessionmaker
 from models import Game, Review
 
 if __name__ == '__main__':
+
     engine = create_engine('sqlite:///one_to_many.db')
     Session = sessionmaker(bind=engine)
     session = Session()
@@ -49,7 +50,9 @@ if __name__ == '__main__':
             )
 
             reviews.append(review)
+            
     
     session.bulk_save_objects(reviews)
     session.commit()
     session.close()
+    
